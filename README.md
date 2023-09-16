@@ -21,7 +21,7 @@ tk80rom.h の中に ROM のデータ(768B)が必要です。<br>
 
 外付け IC を使ったら負けという思想に基づき、
 マイコンだけでなんとかします。<br>
-回路については[電子ブロック工房さんの ZK-80](https://www.recfor.net/blog/mycom/?itemid=883)
+回路については[電子ブロック工房さんの ZK-80 mini](https://www.recfor.net/blog/mycom/?itemid=883)
 を参考にさせていただきました。
 
 ![Schematics](tk80_ch32v003_schematics.png)
@@ -33,7 +33,7 @@ GPIO 一本で、最大 8 個の LED をドライブするので、全体的に�
 
 ## セーブ&ロード
 
-STORE DATA / LOAD DATA で内蔵フラッシュに 1KiB RAM 全体をセーブ＆ロードできます。<br>
+STORE DATA / LOAD DATA で内蔵フラッシュに 1KiB RAM 全体をセーブ＆ロードします。<br>
 セーブアドレスの指定や、ロード後の実行アドレスの自動設定には対応していません。<br>
 純正 ROM の SAVE/LOAD ルーチンのアドレスでフックしていますので、アドレスが異なる ROM を使う場合には修正が必要です。
 
@@ -52,7 +52,6 @@ PD1 はデフォルトでは SWIO として使われているので、そのま�
 ```
     RCC_APB2PeriphClockCmd( RCC_APB2Periph_AFIO, ENABLE);
     GPIO_PinRemapConfig(GPIO_Remap_SDI_Disable, ENABLE);
-
 ```
 
 SWIO の機能を停止させると、そのままではフラッシュへ書き込みできなくなりますので、
