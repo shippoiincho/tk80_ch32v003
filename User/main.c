@@ -21,7 +21,7 @@ uint8_t memread(void *userdata,uint16_t addr){
 
     if(addr<0x300) {
         return tk80rom[addr];
-    } else if((addr>=0x8000)||(addr<0x8400)) {
+    } else if((addr>=0x8000)&&(addr<0x8400)) {
         return tk80ram[(addr&0x3ff)];
     }
 
@@ -31,7 +31,7 @@ uint8_t memread(void *userdata,uint16_t addr){
 
 void memwrite(void *userdata,uint16_t addr,uint8_t data){
 
-    if((addr>=0x8000)||(addr<0x8400)) {
+    if((addr>=0x8000)&&(addr<0x8400)) {
         tk80ram[(addr&0x3ff)]=data;
     }
 }
