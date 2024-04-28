@@ -49,6 +49,9 @@ uint8_t ioread(void *userdata,uint8_t addr){
 
         return 0xff;
 
+    case 2:
+        return tk80ppi[2];
+
     default:
         return 0xff;
 
