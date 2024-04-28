@@ -74,7 +74,7 @@ void iowrite(void *userdata,uint8_t addr,uint8_t data){
 
         if((data&0x80)==0) {
             bit=1<<((data>>1)&7);
-            if((data&0)==0) {
+            if((data&1)==0) {
                 tk80ppi[2]&= ~bit;
                 if(bit==2) {   // Buzzer (bit 1)
                     GPIO_WriteBit(GPIOA, GPIO_Pin_1, Bit_RESET);
